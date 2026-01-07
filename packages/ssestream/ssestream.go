@@ -124,6 +124,8 @@ type Stream[T any] struct {
 	decoder Decoder
 	cur     T
 	err     error
+	buffer  []T
+	bufIdx  int
 }
 
 func NewStream[T any](decoder Decoder, err error) *Stream[T] {
@@ -133,22 +135,7 @@ func NewStream[T any](decoder Decoder, err error) *Stream[T] {
 	}
 }
 
-// Next returns false if the stream has ended or an error occurred.
-// Call Stream.Current() to get the current value.
-// Call Stream.Err() to get the error.
-//
-//		for stream.Next() {
-//			data := stream.Current()
-//		}
-//
-//	 	if stream.Err() != nil {
-//			...
-//	 	}
-func (s *Stream[T]) Next() bool {
-	if s.err != nil {
-		return false
-	}
-
+func (s *Stream[T]) readNext() bool {
 	for s.decoder.Next() {
 		switch s.decoder.Event().Type {
 		case "completion":
@@ -181,6 +168,35 @@ func (s *Stream[T]) Next() bool {
 	return false
 }
 
+// Next returns false if the stream has ended or an error occurred.
+// Call Stream.Current() to get the current value.
+// Call Stream.Err() to get the error.
+//
+//		for stream.Next() {
+//			data := stream.Current()
+//		}
+//
+//	 	if stream.Err() != nil {
+//			...
+//	 	}
+func (s *Stream[T]) Next() bool {
+	if s.err != nil {
+		return false
+	}
+
+	if s.bufIdx < len(s.buffer) {
+		s.cur = s.buffer[s.bufIdx]
+		s.bufIdx++
+		if s.bufIdx == len(s.buffer) {
+			s.buffer = s.buffer[:0]
+			s.bufIdx = 0
+		}
+		return true
+	}
+
+	return s.readNext()
+}
+
 func (s *Stream[T]) Current() T {
 	return s.cur
 }
@@ -195,4 +211,50 @@ func (s *Stream[T]) Close() error {
 		return nil
 	}
 	return s.decoder.Close()
+}
+
+// Peek returns the next event without consuming it from the stream.
+// Returns (zero value, false) if the stream has ended or an error occurred.
+// Multiple calls to Peek will return the same event until Next is called.
+func (s *Stream[T]) Peek() (T, bool) {
+	var zero T
+	if s.err != nil {
+		return zero, false
+	}
+
+	if s.bufIdx < len(s.buffer) {
+		return s.buffer[s.bufIdx], true
+	}
+
+	if !s.readNext() {
+		return zero, false
+	}
+
+	s.buffer = append(s.buffer, s.cur)
+	return s.cur, true
+}
+
+// PeekN returns up to n events from the stream without consuming them.
+// Returns nil if n <= 0 or if an error has occurred.
+// The returned events can be consumed later by calling Next.
+func (s *Stream[T]) PeekN(n int) []T {
+	if n <= 0 || s.err != nil {
+		return nil
+	}
+
+	result := make([]T, 0, n)
+
+	for i := s.bufIdx; i < len(s.buffer) && len(result) < n; i++ {
+		result = append(result, s.buffer[i])
+	}
+
+	for len(result) < n {
+		if !s.readNext() {
+			break
+		}
+		s.buffer = append(s.buffer, s.cur)
+		result = append(result, s.cur)
+	}
+
+	return result
 }
