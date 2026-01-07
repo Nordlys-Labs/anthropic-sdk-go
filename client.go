@@ -8,8 +8,8 @@ import (
 	"os"
 	"slices"
 
-	"github.com/anthropics/anthropic-sdk-go/internal/requestconfig"
-	"github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/internal/requestconfig"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/option"
 )
 
 // Client creates a struct with services and top level methods that help with

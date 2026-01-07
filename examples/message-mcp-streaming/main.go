@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
-	"github.com/anthropics/anthropic-sdk-go/packages/param"
+	"github.com/Nordlys-Labs/anthropic-sdk-go"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/option"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/packages/param"
 )
 
 func main() {

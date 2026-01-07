@@ -8,9 +8,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/internal/testutil"
-	"github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/Nordlys-Labs/anthropic-sdk-go"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/internal/testutil"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/option"
 )
 
 func TestMessageBatchNew(t *testing.T) {

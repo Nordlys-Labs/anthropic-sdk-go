@@ -1,0 +1,19 @@
+#!/bin/bash
+# Reverts Nordlys-Labs fork imports back to anthropics (for upstream merges)
+# Run this before pulling/merging upstream changes
+
+set -e
+
+echo "Reverting to upstream module paths (Nordlys-Labs -> anthropics)..."
+
+# Update all Go files and go.mod files
+find . -type f \( -name "*.go" -o -name "go.mod" \) -exec sed -i 's|github\.com/Nordlys-Labs/anthropic-sdk-go|github.com/anthropics/anthropic-sdk-go|g' {} +
+
+# Fix examples/go.mod module line
+sed -i 's|github\.com/anthropic/anthropic-sdk-go|github.com/anthropics/anthropic-sdk-go|g' examples/go.mod
+
+echo "Running go mod tidy..."
+go mod tidy
+cd examples && go mod tidy && cd ..
+
+echo "✓ Reverted to upstream paths successfully"

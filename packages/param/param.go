@@ -2,7 +2,7 @@ package param
 
 import (
 	"encoding/json"
-	"github.com/anthropics/anthropic-sdk-go/internal/encoding/json/sentinel"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/internal/encoding/json/sentinel"
 	"reflect"
 )
 

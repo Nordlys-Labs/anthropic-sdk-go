@@ -1,0 +1,19 @@
+#!/bin/bash
+# Converts anthropics imports to Nordlys-Labs fork
+# Run this after merging upstream changes
+
+set -e
+
+echo "Applying fork module paths (anthropics -> Nordlys-Labs)..."
+
+# Update all Go files and go.mod files
+find . -type f \( -name "*.go" -o -name "go.mod" \) -exec sed -i 's|github\.com/anthropics/anthropic-sdk-go|github.com/Nordlys-Labs/anthropic-sdk-go|g' {} +
+
+# Fix examples/go.mod module line (has typo: "anthropic" not "anthropics")
+sed -i 's|github\.com/anthropic/anthropic-sdk-go|github.com/Nordlys-Labs/anthropic-sdk-go|g' examples/go.mod
+
+echo "Running go mod tidy..."
+go mod tidy
+cd examples && go mod tidy && cd ..
+
+echo "✓ Fork paths applied successfully"

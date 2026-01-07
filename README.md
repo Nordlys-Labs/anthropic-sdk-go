@@ -2,7 +2,7 @@
 
 <!-- x-release-please-start-version -->
 
-<a href="https://pkg.go.dev/github.com/anthropics/anthropic-sdk-go"><img src="https://pkg.go.dev/badge/github.com/anthropics/anthropic-sdk-go.svg" alt="Go Reference"></a>
+<a href="https://pkg.go.dev/github.com/Nordlys-Labs/anthropic-sdk-go"><img src="https://pkg.go.dev/badge/github.com/Nordlys-Labs/anthropic-sdk-go.svg" alt="Go Reference"></a>
 
 <!-- x-release-please-end -->
 
@@ -15,7 +15,7 @@ from applications written in Go.
 
 ```go
 import (
-	"github.com/anthropics/anthropic-sdk-go" // imported as anthropic
+	"github.com/Nordlys-Labs/anthropic-sdk-go" // imported as anthropic
 )
 ```
 
@@ -26,7 +26,7 @@ Or to pin the version:
 <!-- x-release-please-start-version -->
 
 ```sh
-go get -u 'github.com/anthropics/anthropic-sdk-go@v1.19.0'
+go get -u 'github.com/Nordlys-Labs/anthropic-sdk-go@v1.19.0'
 ```
 
 <!-- x-release-please-end -->
@@ -46,8 +46,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/Nordlys-Labs/anthropic-sdk-go"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/option"
 )
 
 func main() {
@@ -516,7 +516,7 @@ client.Messages.New(context.TODO(), ...,
 
 The request option `option.WithDebugLog(nil)` may be helpful while debugging.
 
-See the [full list of request options](https://pkg.go.dev/github.com/anthropics/anthropic-sdk-go/option).
+See the [full list of request options](https://pkg.go.dev/github.com/Nordlys-Labs/anthropic-sdk-go/option).
 
 ### Pagination
 
@@ -822,8 +822,8 @@ streaming.
 package main
 
 import (
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/bedrock"
+	"github.com/Nordlys-Labs/anthropic-sdk-go"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/bedrock"
 )
 
 func main() {
@@ -849,8 +849,8 @@ package main
 import (
 	"context"
 
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/vertex"
+	"github.com/Nordlys-Labs/anthropic-sdk-go"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/vertex"
 )
 
 func main() {
@@ -874,7 +874,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/anthropics/anthropic-sdk-go/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/Nordlys-Labs/anthropic-sdk-go/issues) with questions, bugs, or suggestions.
 
 ## Contributing
 

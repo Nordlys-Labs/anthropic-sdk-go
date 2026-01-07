@@ -1,7 +1,7 @@
 package anthropic
 
 import (
-	"github.com/anthropics/anthropic-sdk-go/packages/param"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/packages/param"
 	"io"
 	"time"
 )

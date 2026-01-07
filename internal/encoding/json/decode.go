@@ -14,7 +14,7 @@ import (
 	"encoding"
 	"encoding/base64"
 	"fmt"
-	"github.com/anthropics/anthropic-sdk-go/internal/encoding/json/shims"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/internal/encoding/json/shims"
 	"reflect"
 	"strconv"
 	"strings"

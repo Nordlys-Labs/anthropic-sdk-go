@@ -18,10 +18,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/anthropics/anthropic-sdk-go/internal"
-	"github.com/anthropics/anthropic-sdk-go/internal/apierror"
-	"github.com/anthropics/anthropic-sdk-go/internal/apiform"
-	"github.com/anthropics/anthropic-sdk-go/internal/apiquery"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/internal"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/internal/apierror"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/internal/apiform"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/internal/apiquery"
 )
 
 func getDefaultHeaders() map[string]string {

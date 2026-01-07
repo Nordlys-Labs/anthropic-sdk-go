@@ -1,7 +1,7 @@
 package sentinel
 
 import (
-	"github.com/anthropics/anthropic-sdk-go/internal/encoding/json/shims"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/internal/encoding/json/shims"
 	"reflect"
 	"sync"
 )

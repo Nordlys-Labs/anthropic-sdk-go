@@ -5,10 +5,10 @@ package shared
 import (
 	"encoding/json"
 
-	"github.com/anthropics/anthropic-sdk-go/internal/apijson"
-	"github.com/anthropics/anthropic-sdk-go/packages/param"
-	"github.com/anthropics/anthropic-sdk-go/packages/respjson"
-	"github.com/anthropics/anthropic-sdk-go/shared/constant"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/internal/apijson"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/packages/param"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/packages/respjson"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/shared/constant"
 )
 
 // aliased to make [param.APIUnion] private when embedding

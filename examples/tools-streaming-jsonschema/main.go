@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/Nordlys-Labs/anthropic-sdk-go"
 	"github.com/invopop/jsonschema"
 )
 

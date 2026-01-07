@@ -2,7 +2,7 @@ package apijson
 
 import (
 	"errors"
-	"github.com/anthropics/anthropic-sdk-go/packages/param"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/packages/param"
 	"reflect"
 
 	"github.com/tidwall/gjson"

@@ -3,7 +3,7 @@ package param
 import (
 	"encoding/json"
 	"fmt"
-	shimjson "github.com/anthropics/anthropic-sdk-go/internal/encoding/json"
+	shimjson "github.com/Nordlys-Labs/anthropic-sdk-go/internal/encoding/json"
 	"time"
 )
 

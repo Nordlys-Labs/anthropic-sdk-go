@@ -11,9 +11,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/internal"
-	"github.com/anthropics/anthropic-sdk-go/option"
+	"github.com/Nordlys-Labs/anthropic-sdk-go"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/internal"
+	"github.com/Nordlys-Labs/anthropic-sdk-go/option"
 )
 
 type closureTransport struct {
